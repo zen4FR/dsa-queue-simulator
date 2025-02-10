@@ -9,7 +9,7 @@ void initializeSDL(SDL_Window **window, SDL_Renderer **renderer) {
     *renderer = SDL_CreateRenderer(*window, -1, SDL_RENDERER_ACCELERATED);
     SDL_SetRenderDrawColor(*renderer, 255, 255, 255, 255); // Set background color to white
 }
-//bg colors were set!!
+
 
 void cleanupSDL(SDL_Window *window, SDL_Renderer *renderer) {
     SDL_DestroyRenderer(renderer);
