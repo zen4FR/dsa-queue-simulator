@@ -15,7 +15,7 @@ const SDL_Color VEHICLE_COLORS[] = {
 };
 
 //vehicle addition
-//vehicle add
+
 
 void initializeTrafficLights(TrafficLight *lights)
 {
