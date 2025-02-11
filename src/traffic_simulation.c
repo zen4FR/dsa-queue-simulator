@@ -648,3 +648,4 @@ int isQueueEmpty(Queue *q)
 {
     return q->front == NULL;
 }
+//Implement queue operations: enqueue(), dequeue(), isEmpty()
