@@ -15,6 +15,8 @@ const SDL_Color VEHICLE_COLORS[] = {
 };
 
 //vehicle addition
+// renderVehicle(renderer, vehicleType, vehicleRect.x, vehicleRect.y, vehicleRect.w, vehicleRect.h);
+//tried keeping imaeges but was too frustating so goig with the rectangular blocks!! 
 
 
 void initializeTrafficLights(TrafficLight *lights)
@@ -647,5 +649,6 @@ Vehicle dequeue(Queue *q)
 int isQueueEmpty(Queue *q)
 {
     return q->front == NULL;
+    //
 }
 //Implement queue operations: enqueue(), dequeue(), isEmpty()
