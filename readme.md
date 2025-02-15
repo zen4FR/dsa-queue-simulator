@@ -44,7 +44,7 @@ DSA-Queue-Simulator/
 
 1. Clone the repo:
 ```bash
-git clone https://github.com/sthaarwin/DSA-Queue-Simulator.git
+git clone https://github.com/zen4FR/dsa-queue-simulator.git
 cd DSA-Queue-Simulator
 ```
 
