@@ -626,7 +626,11 @@ void enqueue(Queue *q, Vehicle vehicle)
     }
     q->size++;
 }
+// Vehicle enqueue (Queue *q)
+// {
+//     if (q->front==NULL)
 
+// }
 Vehicle dequeue(Queue *q)
 {
     if (q->front == NULL)
