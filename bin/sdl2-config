@@ -8,7 +8,7 @@ prefix=$(cd -P -- "$bindir/.." && printf '%s\n' "$(pwd -P)")
 exec_prefix=${prefix}/bin
 exec_prefix_set=no
 libdir=${prefix}/lib
-
+//commitrem
 #usage="\
 #Usage: $0 [--prefix[=DIR]] [--exec-prefix[=DIR]] [--version] [--cflags] [--libs]"
 usage="\
