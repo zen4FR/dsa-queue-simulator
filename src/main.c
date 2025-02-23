@@ -140,29 +140,3 @@ int main(int argc, char *argv[]) {
     cleanupSDL(window, renderer);
     return 0;
 }
-//           for (int i = 0; i < MAX_VEHICLES; i++) {
-//                 if (!vehicles[i].active) {
-//                     vehicles[i] = *newVehicle;
-//                     vehicles[i].active = true;
-//                     vehicleCount++;
-//                     stats.totalVehicles++;
-//                     break;
-//                 }
-//             }
-            
-//             free(newVehicle);
-//             lastVehicleSpawn = currentTime;
-//         }
-
-//         // Update traffic lights
-//         updateTrafficLights(lights);
-
-//         renderSimulation(renderer, vehicles, lights, &stats);
-
-//         SDL_Delay(16); // Cap at ~60 FPS
-//     }
-
-//     printf("Traffic simulation ended.\n"); // Debug print (6th extra line)
-//     cleanupSDL(window, renderer);
-//     return 0;
-// }
