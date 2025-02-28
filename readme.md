@@ -124,5 +124,4 @@ typedef enum {
 
 ## 🙌 Acknowledgments
 - ❤️ SDL2 Dev Team
-- 🔬 Traffic Simulation Research Community
-- 🎯 Contributors & Testers
+
