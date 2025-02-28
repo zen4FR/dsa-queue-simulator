@@ -2,7 +2,7 @@
 
 A real-time traffic simulation showcasing queue data structures & traffic management. Includes multiple vehicle types, traffic lights, and priority-based queue handling.
 
-![Traffic Simulation Demo](demo.gif)
+![Traffic Simulation Demo](working_demo.gif)
 
 ## ✨ Features
 
@@ -54,7 +54,7 @@ g++ -Iinclude -Llib -o bin/main.exe src/main.c src/traffic_simulation.c -lmingw3
 ```
 
 ```bash
-g++ -o bin/generator src/generator.c src/traffic_simulation.c -lSDL2 -Iinclude -Llib -lmingw32 -lSDL2main -lSDL2
+g++ -Iinclude -Llib -o bin/main.exe src/main.c src/traffic_simulation.c -lmingw32 -lSDL2main -lSDL2
 ```
 
 ## ▶️ Running the Simulation
