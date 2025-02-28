@@ -9,7 +9,7 @@ A real-time traffic simulation showcasing queue data structures & traffic manage
 - 🏎️ Real-time 4-way intersection simulation
 - 🚓🚑🚒 Multiple vehicle types with priority handling
 - 🚦 Dynamic traffic light system
-- 🔄 Vehicles can turn left, right, or go straight
+- 🔄 Vehicles can turn left, or go straight
 - 🎯 Queue-based traffic management
 
 ## ⚙️ Prerequisites
@@ -119,8 +119,8 @@ typedef enum {
 
 ## 📚 References
 - 📖 [SDL2 Documentation](https://wiki.libsdl.org/)
-- 📘 CLRS: Queue Data Structures
-- 🚗 Highway Capacity Manual (Traffic Flow Theory)
+- 📘 Queue Data Structure: Introduction to Algorithms, CLRS (Cormen, Leiserson, Rivest, Stein)
+- 🚑 Traffic Flow Theory: Highway Capacity Manual (Transportation Research Board)
 
 ## 🙌 Acknowledgments
 - ❤️ SDL2 Dev Team
