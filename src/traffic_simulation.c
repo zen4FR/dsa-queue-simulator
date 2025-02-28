@@ -21,26 +21,32 @@ const SDL_Color VEHICLE_COLORS[] = {
 
 void initializeTrafficLights(TrafficLight *lights)
 {
+    // Define the size of the traffic light (square)
+    int trafficLightSize = 20; // Width and height of the traffic light (square)
+
+    // Adjust the positions to center the traffic lights on the middle lane
     lights[0] = (TrafficLight){
         .state = RED,
         .timer = 0,
-        .position = {INTERSECTION_X - LANE_WIDTH, INTERSECTION_Y - LANE_WIDTH - TRAFFIC_LIGHT_HEIGHT, TRAFFIC_LIGHT_WIDTH, TRAFFIC_LIGHT_HEIGHT},
+        .position = {INTERSECTION_X - trafficLightSize / 2, INTERSECTION_Y - LANE_WIDTH - trafficLightSize, trafficLightSize, trafficLightSize},
         .direction = DIRECTION_NORTH};
+
     lights[1] = (TrafficLight){
         .state = RED,
         .timer = 0,
-        .position = {INTERSECTION_X - LANE_WIDTH, INTERSECTION_Y + LANE_WIDTH, TRAFFIC_LIGHT_WIDTH, TRAFFIC_LIGHT_HEIGHT},
+        .position = {INTERSECTION_X - trafficLightSize / 2, INTERSECTION_Y + LANE_WIDTH, trafficLightSize, trafficLightSize},
         .direction = DIRECTION_SOUTH};
+
     lights[2] = (TrafficLight){
         .state = GREEN,
         .timer = 0,
-        .position = {INTERSECTION_X + LANE_WIDTH, INTERSECTION_Y - LANE_WIDTH, TRAFFIC_LIGHT_HEIGHT, TRAFFIC_LIGHT_WIDTH},
+        .position = {INTERSECTION_X + LANE_WIDTH, INTERSECTION_Y - trafficLightSize / 2, trafficLightSize, trafficLightSize},
         .direction = DIRECTION_EAST};
-        //traffic light generation 
+
     lights[3] = (TrafficLight){
         .state = GREEN,
         .timer = 0,
-        .position = {INTERSECTION_X - LANE_WIDTH - TRAFFIC_LIGHT_HEIGHT, INTERSECTION_Y - LANE_WIDTH, TRAFFIC_LIGHT_HEIGHT, TRAFFIC_LIGHT_WIDTH},
+        .position = {INTERSECTION_X - LANE_WIDTH - trafficLightSize, INTERSECTION_Y - trafficLightSize / 2, trafficLightSize, trafficLightSize},
         .direction = DIRECTION_WEST};
 }
 
@@ -502,7 +508,7 @@ void updateVehicle(Vehicle *vehicle, TrafficLight *lights)
 
 void renderRoads(SDL_Renderer *renderer)
 {
-    SDL_SetRenderDrawColor(renderer, 128, 128, 128, 255); // Gray color for roads
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255); // Gray color for roads
 
     // Draw the intersection
     SDL_Rect intersection = {INTERSECTION_X - LANE_WIDTH, INTERSECTION_Y - LANE_WIDTH, LANE_WIDTH * 2, LANE_WIDTH * 2};
@@ -519,25 +525,29 @@ void renderRoads(SDL_Renderer *renderer)
     SDL_RenderFillRect(renderer, &horizontalRoad2);
 
     // Draw lane dividers
-    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-    for (int i = 0; i < WINDOW_HEIGHT; i += 40)
+    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255); // White color for lane dividers
+
+    // Vertical lane dividers (left and right of the intersection)
+    for (int y = 0; y < WINDOW_HEIGHT; y++)
     {
-        if (i < INTERSECTION_Y - LANE_WIDTH || i > INTERSECTION_Y + LANE_WIDTH)
+        if (y < INTERSECTION_Y - LANE_WIDTH || y > INTERSECTION_Y + LANE_WIDTH)
         {
-            SDL_Rect laneDivider1 = {INTERSECTION_X - LANE_WIDTH / 2 - 1, i, 2, 20};
-            SDL_Rect laneDivider2 = {INTERSECTION_X + LANE_WIDTH / 2 - 1, i, 2, 20};
-            SDL_RenderFillRect(renderer, &laneDivider1);
-            SDL_RenderFillRect(renderer, &laneDivider2);
+            // Left lane divider
+            SDL_RenderDrawPoint(renderer, INTERSECTION_X - LANE_WIDTH / 2 - 1, y);
+            // Right lane divider
+            SDL_RenderDrawPoint(renderer, INTERSECTION_X + LANE_WIDTH / 2 - 1, y);
         }
     }
-    for (int i = 0; i < WINDOW_WIDTH; i += 40)
+
+    // Horizontal lane dividers (above and below the intersection)
+    for (int x = 0; x < WINDOW_WIDTH; x++)
     {
-        if (i < INTERSECTION_X - LANE_WIDTH || i > INTERSECTION_X + LANE_WIDTH)
+        if (x < INTERSECTION_X - LANE_WIDTH || x > INTERSECTION_X + LANE_WIDTH)
         {
-            SDL_Rect laneDivider1 = {i, INTERSECTION_Y - LANE_WIDTH / 2 - 1, 20, 2};
-            SDL_Rect laneDivider2 = {i, INTERSECTION_Y + LANE_WIDTH / 2 - 1, 20, 2};
-            SDL_RenderFillRect(renderer, &laneDivider1);
-            SDL_RenderFillRect(renderer, &laneDivider2);
+            // Top lane divider
+            SDL_RenderDrawPoint(renderer, x, INTERSECTION_Y - LANE_WIDTH / 2 - 1);
+            // Bottom lane divider
+            SDL_RenderDrawPoint(renderer, x, INTERSECTION_Y + LANE_WIDTH / 2 - 1);
         }
     }
 
@@ -572,7 +582,7 @@ void renderQueues(SDL_Renderer *renderer)
 
 void renderSimulation(SDL_Renderer *renderer, Vehicle *vehicles, TrafficLight *lights, Statistics *stats)
 {
-    SDL_SetRenderDrawColor(renderer, 200, 200, 200, 255); // Brighter background color
+    SDL_SetRenderDrawColor(renderer, 177, 177, 177, 255);  // Brighter background color
     SDL_RenderClear(renderer);
 
     // Render roads
